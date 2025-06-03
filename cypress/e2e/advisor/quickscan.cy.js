@@ -34,6 +34,24 @@ quickscanShadow()
 
 quickscanFind('[data-test-id="situation-checkbox-MOGELIJK"')
         .click()
-    
+quickscanFind('label[for=deny-info-sharing]')
+        .click()
+
+// assertion step 3
+quickscanShadow()
+        .contains('label', 'Voornaam').should('be.visible');
+
+quickscanFind('[data-test-id="first_name"]')
+        .type('Wanda')
+quickscanFind('[data-test-id="last_name"]')
+        .type('Wizzard')
+quickscanFind('#phone_localnumber')
+        .type('0612345677')
+quickscanFind('[data-test-id="email"]')
+        .type('wizzard@gmail.com')
+quickscanFind('[data-test-id="dynamic-form-button"]')
+        .click()
+
+
  })
 })
