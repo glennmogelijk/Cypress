@@ -4,10 +4,9 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:chrome": "cypress run --browser chrome",
-    "cy:chrome:open": "cypress open --browser chrome",
-    "test": "cypress run",
-    "test:chrome": "cypress run --browser chrome"
+    "cy:chromium": "cypress run --browser chromium",
+    "cy:chromium:open": "cypress open --browser chromium",
+    "test": "cypress run"
   },
   "keywords": [],
   "author": "",

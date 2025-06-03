@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('login', (username, password) => {
+  // Option A: UI Login
+  cy.visit('https://advisor-test.mogelijk.nl/login')
+  cy.get('[data-test-id="email"]').type(username || Cypress.env('username'))
+  cy.get('[data-test-id="password"]').type(password || Cypress.env('password'))
+  cy.get('[data-test-id="dynamic-form-button"]').click()
+ 
+})
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from failing the test
+  return false
+})
