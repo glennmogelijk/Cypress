@@ -1,11 +1,9 @@
 describe('Fondsflow', () => {
   it('fondsregistratie aanmaken en weer verwijderen', () => {
-
-
-    cy.MMlogin('mirra@mirra.nl','Bbxa3859?')
+    cy.MMlogin('mirra@mirra.nl', 'Bbxa3859?')
 
     cy.title().should('eq', 'Actueel aanbod | Mogelijk Vastgoedfinancieringen')
-    
+
     cy.get('[data-test-id="sidebar-link-3"]').click()
 
     cy.title().should('eq', 'Het Mogelijk Fonds | Mogelijk Vastgoedfinancieringen')
@@ -18,10 +16,5 @@ describe('Fondsflow', () => {
     cy.get('[data-test-id="fund-registration-submit"]').click()
     cy.get('[data-test-id="remove-private-fund-registration-0"]').click()
     cy.get('[data-test-id="confirm-button"]').click()
-
-    
-
-
-
   })
 })

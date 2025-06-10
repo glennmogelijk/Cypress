@@ -24,15 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-
 Cypress.Commands.add('login', (username, password) => {
   // Option A: UI Login
   cy.visit('https://advisor-test.mogelijk.nl/login')
   cy.get('[data-test-id="email"]').type(username || Cypress.env('username'))
   cy.get('[data-test-id="password"]').type(password || Cypress.env('password'))
   cy.get('[data-test-id="dynamic-form-button"]').click()
-
-  })
+})
 
 Cypress.Commands.add('MMlogin', (username, password) => {
   // Option A: UI Login
@@ -41,11 +39,13 @@ Cypress.Commands.add('MMlogin', (username, password) => {
   cy.get('[data-test-id="email"]').type(username || Cypress.env('username'))
   cy.get('[data-test-id="password"]').type(password || Cypress.env('password'))
   cy.get('[data-test-id="dynamic-form-button"]').click()
-  
- 
 })
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from failing the test
-  return false
+  // Only ignore the "split" error (UIdropdown issue), throw exception for all others
+  if (err.message.includes("(reading 'split')")) {
+    return false
+  }
+
+  return true
 })

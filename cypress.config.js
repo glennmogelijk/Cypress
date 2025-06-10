@@ -1,4 +1,4 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   e2e: {
@@ -14,15 +14,13 @@ module.exports = defineConfig({
     numTestsKeptInMemory: 0,
     experimentalMemoryManagement: true,
     video: false,
-    screenshotOnRunFailure: true
+    screenshotOnRunFailure: true,
   },
   env: {
     environment: 'test',
-    advisorLoginUrl: '/advisor/login',
-    quickscanUrl: '/advisor/quickscan'
   },
   retries: {
     runMode: 2,
-    openMode: 0
-  }
-});
+    openMode: 0,
+  },
+})
