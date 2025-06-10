@@ -31,6 +31,17 @@ Cypress.Commands.add('login', (username, password) => {
   cy.get('[data-test-id="email"]').type(username || Cypress.env('username'))
   cy.get('[data-test-id="password"]').type(password || Cypress.env('password'))
   cy.get('[data-test-id="dynamic-form-button"]').click()
+
+  })
+
+Cypress.Commands.add('MMlogin', (username, password) => {
+  // Option A: UI Login
+  cy.visit('https://mijn-test.mogelijk.nl')
+  cy.get('[data-test-id="myaccount-login-button"]').eq(0).click({ force: true })
+  cy.get('[data-test-id="email"]').type(username || Cypress.env('username'))
+  cy.get('[data-test-id="password"]').type(password || Cypress.env('password'))
+  cy.get('[data-test-id="dynamic-form-button"]').click()
+  
  
 })
 

@@ -1,5 +1,5 @@
- describe('QuickscanP2P', () => {
-  it('Do a quickscan for p2p', () => {
+ describe('QuickscanBTL', () => {
+  it('Do a quickscan for btl', () => {
 
 
     cy.login('mirra@mirra.nl','Bbxa3859?')
@@ -16,15 +16,15 @@ quickscanShadow()
         .contains('h3', 'Te financieren object').should('be.visible');
 
 quickscanFind('[data-test-id="quickscan-location-autocomplete-input"]')
-        .type('Zandplaat 1, 3891ZB, Zeewolde')
+        .type('Europalaan 100, 3526 KS Utrecht, Nederland')
         .type('{downarrow}')                   
         .type('{enter}')
-quickscanFind('[data-test-id="quickscan-addres-type-COMMERCIAL_BUILDING_MIXED"]')
+quickscanFind('[data-test-id="quickscan-addres-type-HOME"]')
         .click()  
 quickscanFind('[data-test-id="quickscan-marketvalue-input"]')
-        .type('1000000')
+        .type('2000000')
 quickscanFind('[data-test-id="quickscan-loan-input"]')
-        .type('500000')
+        .type('1000000')
 quickscanFind('[data-test-id="quickscan-next-step"]')
         .click()
 
@@ -42,15 +42,18 @@ quickscanShadow()
         .contains('label', 'Voornaam').should('be.visible');
 
 quickscanFind('[data-test-id="first_name"]')
-        .type('Wanda')
+        .type('panda')
 quickscanFind('[data-test-id="last_name"]')
-        .type('Wizzard')
+        .type('vliizzard')
 quickscanFind('#phone_localnumber')
-        .type('0612345677')
+        .type('0612345667')
 quickscanFind('[data-test-id="email"]')
-        .type('wizzard@gmail.com')
+        .type('blizzard@gmail.com')
 quickscanFind('[data-test-id="dynamic-form-button"]')
         .click()
+
+// binnen de aanvraagpagina
+
 
 
  })
